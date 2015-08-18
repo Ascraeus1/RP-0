@@ -5,11 +5,11 @@ CONTRACT_TYPE
 	group = OrbiterContracts
 	
 	title = Uranus Orbiter
-	description = Design and successfully launch a probe to reach a orbit of Uranus, stay in orbit at least 2 years conducting studies and then transmit science back to Earth.
+	description = Design and successfully launch a probe to reach a orbit of Uranus, stay in orbit at least 4 years conducting studies and then transmit science back to Earth.
 	
-	synopsis = Send a probe to orbit Uranus for 2 years and transmit science.
+	synopsis = Send a probe to orbit Uranus for 4 years and transmit science.
 	
-	completedMessage = Congratulations on the flyby! The data are coming in now.
+	completedMessage = The data received from the Uranus Orbiter will help us understand its magnetosphere and atmospheric dynamics, two topics that have intrigued the scientist since the first observation of the planet.
 	
 	minExpiry = 1
 	maxExpiry = 30
@@ -46,7 +46,7 @@ CONTRACT_TYPE
 	{
 		name = vesselGroup
 		type = VesselParameterGroup
-		title = Orbit Uranus for 2 years and receive data.
+		title = Orbit Uranus for 4 years and receive data.
 		define = UranusOrbitCraft
 		
 		PARAMETER
@@ -74,9 +74,9 @@ CONTRACT_TYPE
 			{
 				name = Duration
 				type = Duration
-				duration = 2y // Mirroring Galileo prime mission
+				duration = 4y // Cassini-like primary mission
 				preWaitText = Reach specified orbit.
-				waitingText = Conducting studies on the Jovian system
+				waitingText = Conducting studies on the Uranus magnetosphere and atmospheric dynamics.
 				completionText = Primary mission completed.
 			}
 		}
