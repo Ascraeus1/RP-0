@@ -5,11 +5,11 @@ CONTRACT_TYPE
 	group = OrbiterContracts
 	
 	title = Neptune Orbiter
-	description = Design and successfully launch a probe to reach a orbit of Neptune, stay in orbit at least 2 years conducting studies and then transmit science back to Earth.
+	description = Design and successfully launch a probe to reach a orbit of Neptune, stay in orbit at least 4 years conducting studies and then transmit science back to Earth.
 	
-	synopsis = Send a probe to orbit Neptune for 2 years and transmit science.
+	synopsis = Send a probe to orbit Neptune for 4 years and transmit science.
 	
-	completedMessage = Congratulations on the flyby! The data are coming in now.
+	completedMessage = Being a "Ice-Giant", the most common planets type in the Universe, the data gathered for our Neptune Orbiter will radically expand our knowledge about Solar System formation and evolution.
 	
 	minExpiry = 1
 	maxExpiry = 30
@@ -19,7 +19,7 @@ CONTRACT_TYPE
 	targetBody = Neptune
 	maxCompletions = 1
 	maxSimultaneous = 1
-	deadline = 7300 // 5 years
+	deadline = 21900 // 15 years
 	prestige = Exceptional
 	
 	// rewards
@@ -46,8 +46,8 @@ CONTRACT_TYPE
 	{
 		name = vesselGroup
 		type = VesselParameterGroup
-		title = Orbit Jupiter for 2 years and receive data.
-		define = JupiterOrbitCraft
+		title = Orbit Neptune for 4 years and receive data.
+		define = NeptuneOrbitCraft
 		
 		PARAMETER
 		{
@@ -67,16 +67,16 @@ CONTRACT_TYPE
 		{
 			name = Orbit
 			type = Orbit
-			targetBody = Jupiter
+			targetBody = Neptune
 			disableOnStateChange = true
 		
 			PARAMETER
 			{
 				name = Duration
 				type = Duration
-				duration = 2y // Mirroring Galileo prime mission
+				duration = 4y // Cassini-line primary mission
 				preWaitText = Reach specified orbit.
-				waitingText = Conducting studies on the Jovian system
+				waitingText = Conducting studies on Neptune atmosphere and magnetosphere.
 				completionText = Primary mission completed.
 			}
 		}
@@ -84,7 +84,7 @@ CONTRACT_TYPE
 		{
 			name = CollectScience
 			type = CollectScience
-			targetBody = Jupiter
+			targetBody = Neptune
 			recoveryMethod = RecoverOrTransmit
 		}
 	}
