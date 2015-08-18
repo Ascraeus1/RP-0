@@ -1,0 +1,94 @@
+CONTRACT_TYPE
+{
+	name = OrbiterVenus1 // Inspired by Pioneer 12 (Mid 70's tech)
+	
+	group = OrbiterContracts
+	
+	title = Venus Orbiter
+	description = Design and successfully launch a probe to reach a orbit of Venus, stay in orbit at least 1 year conducting studies and then transmit science back to Earth.
+	
+	synopsis = Send a probe to orbit Venus for 1 year and transmit science.
+	
+	completedMessage = The studies conducted in our nearest neighbour by our orbiter have brought some ligth in the key aspects of planetary evolution and will surely affect the way we see our own world.
+	
+	minExpiry = 1
+	maxExpiry = 30
+	cancellable = true
+	declinable = true
+	autoAccept = false
+	targetBody = Venus
+	maxCompletions = 1
+	maxSimultaneous = 1
+	deadline = 2920 // 2 years
+	prestige = Exceptional
+	
+	// rewards
+	advanceFunds = 45000.0 // Only placeholders copy-pasted from flyby contracts. Not yet balanced.
+	rewardReputation = 90.0
+	rewardFunds = 45000.0
+	failureFunds = 65000.0
+	
+	weight = 10.0
+	
+	REQUIREMENT
+	{
+		name = CompleteContract
+		type = CompleteContract
+		contractType = flybyVenus
+	}
+	
+
+	PARAMETER
+	{
+		name = vesselGroup
+		type = VesselParameterGroup
+		title = Orbit Venus for 1 year and receive data.
+		define = VenusOrbitCraft
+		
+		PARAMETER
+		{
+			name = NewVessel
+			type = NewVessel
+		}
+	
+		PARAMETER 
+		{
+			name = Crewmembers
+			type = HasCrew
+			minCrew = 0
+			maxCrew = 0
+		}
+
+		PARAMETER
+		{
+			name = Orbit // Pioneer-like orbit
+			type = Orbit
+			targetBody = Venus
+			disableOnStateChange = true
+			situation = ORBITING
+			minApA = 60000000
+			maxApA = 70000000
+			minPeA = 150000
+			maxPeA = 200000
+			minInclination = 65
+			maxInclination = 75
+		
+			PARAMETER
+			{
+				name = Duration
+				type = Duration
+				duration = 1y // Mirroring Pioneer 12 prime mission
+				preWaitText = Reach specified orbit.
+				waitingText = Conducting studies on the Venusian system
+				completionText = Primary mission completed.
+			}
+		}
+		PARAMETER
+		{
+			name = CollectScience
+			type = CollectScience
+			targetBody = Venus
+			recoveryMethod = RecoverOrTransmit
+		}
+	}
+}
