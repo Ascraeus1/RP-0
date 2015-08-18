@@ -1,0 +1,98 @@
+CONTRACT_TYPE
+{
+	name = OrbiterMercury // Inspired by Messenger(Current day tech)
+	
+	group = OrbiterContracts
+	
+	title = Mercury Orbiter
+	description = Design and successfully launch a probe to reach a orbit of Mercury, stay in orbit at least 1 years conducting studies and then transmit science back to Earth.
+	
+	synopsis = Send a probe to orbit Mercury for 1 year and transmit science.
+	
+	completedMessage = Our understanding of Mercury.
+	
+	minExpiry = 1
+	maxExpiry = 30
+	cancellable = true
+	declinable = true
+	autoAccept = false
+	targetBody = Mercury
+	maxCompletions = 1
+	maxSimultaneous = 1
+	deadline = 5840 // 4 years
+	prestige = Significative
+	
+	// rewards
+	advanceFunds = 30000.0 // Only placeholders copy-pasted from flyby contracts. Not yet balanced.
+	rewardReputation = 80.0
+	rewardFunds = 30000.0
+	failureFunds = 45000.0
+	
+	weight = 10.0
+	
+	REQUIREMENT
+	{
+		name = CompleteContract
+		type = CompleteContract
+		contractType = flybyMercury
+	}
+	
+	{
+		name = CompleteContract
+		type = CompleteContract
+		contractType = OrbiterVenus1
+	}
+	PARAMETER
+	{
+		name = vesselGroup
+		type = VesselParameterGroup
+		title = Orbit Mercury for 2 years and receive data.
+		define = MercuryOrbitCraft
+		
+		PARAMETER
+		{
+			name = NewVessel
+			type = NewVessel
+		}
+	
+		PARAMETER 
+		{
+			name = Crewmembers
+			type = HasCrew
+			minCrew = 0
+			maxCrew = 0
+		}
+
+		PARAMETER
+		{
+			name = Orbit // Messenger-like orbit
+			type = Orbit
+			targetBody = Mercury
+			disableOnStateChange = false
+			situation = ORBITING
+			minApA = 15000000
+			maxApA = 15500000
+			minPeA = 200000
+			maxPeA = 210000
+			minInclination = 81
+			maxInclination = 83
+			
+			PARAMETER
+			{
+				name = Duration
+				type = Duration
+				duration = 1y // Mirroring Messenger prime mission
+				preWaitText = Reach specified orbit.
+				waitingText = Conducting studies on the Jovian system
+				completionText = Primary mission completed.
+			}
+		}
+		PARAMETER
+		{
+			name = CollectScience
+			type = CollectScience
+			targetBody = Mercury
+			recoveryMethod = RecoverOrTransmit
+		}
+	}
+}
