@@ -1,0 +1,91 @@
+CONTRACT_TYPE
+{
+	name = OrbiterUranus
+	
+	group = OrbiterContracts
+	
+	title = Uranus Orbiter
+	description = Design and successfully launch a probe to reach a orbit of Uranus, stay in orbit at least 2 years conducting studies and then transmit science back to Earth.
+	
+	synopsis = Send a probe to orbit Uranus for 2 years and transmit science.
+	
+	completedMessage = Congratulations on the flyby! The data are coming in now.
+	
+	minExpiry = 1
+	maxExpiry = 30
+	cancellable = true
+	declinable = true
+	autoAccept = false
+	targetBody = Uranus
+	maxCompletions = 1
+	maxSimultaneous = 1
+	deadline = 21900 // 15 years
+	prestige = Exceptional
+	
+	// rewards
+	advanceFunds = 45000.0
+	rewardReputation = 90.0
+	rewardFunds = 45000.0
+	failureFunds = 65000.0
+	
+	weight = 10.0
+	
+	REQUIREMENT
+	{
+		name = CompleteContract
+		type = CompleteContract
+		contractType = flybyUranus
+	}
+	
+	{
+		name = CompleteContract
+		type = CompleteContract
+		contractType = OrbiterSaturn
+	}
+	PARAMETER
+	{
+		name = vesselGroup
+		type = VesselParameterGroup
+		title = Orbit Uranus for 2 years and receive data.
+		define = UranusOrbitCraft
+		
+		PARAMETER
+		{
+			name = NewVessel
+			type = NewVessel
+		}
+	
+		PARAMETER 
+		{
+			name = Crewmembers
+			type = HasCrew
+			minCrew = 0
+			maxCrew = 0
+		}
+
+		PARAMETER
+		{
+			name = Orbit
+			type = Orbit
+			targetBody = Uranus
+			disableOnStateChange = true
+		
+			PARAMETER
+			{
+				name = Duration
+				type = Duration
+				duration = 2y // Mirroring Galileo prime mission
+				preWaitText = Reach specified orbit.
+				waitingText = Conducting studies on the Jovian system
+				completionText = Primary mission completed.
+			}
+		}
+		PARAMETER
+		{
+			name = CollectScience
+			type = CollectScience
+			targetBody = Uranus
+			recoveryMethod = RecoverOrTransmit
+		}
+	}
+}
