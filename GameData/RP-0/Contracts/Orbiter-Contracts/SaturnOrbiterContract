@@ -2,7 +2,7 @@ CONTRACT_TYPE
 {
 	name = OrbiterSaturn
 	
-	group = OrbiterContracts
+	group = OrbitContracts
 	
 	title = Saturn Orbiter
 	description = Design and successfully launch a probe to reach a orbit of Saturn, stay in orbit at least 4 years conducting studies and then transmit science back to Earth.
