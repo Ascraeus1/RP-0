@@ -2,7 +2,7 @@ CONTRACT_TYPE
 {
 	name = OrbiterNeptune
 	
-	group = OrbiterContracts
+	group = OrbitContracts
 	
 	title = Neptune Orbiter
 	description = Design and successfully launch a probe to reach a orbit of Neptune, stay in orbit at least 4 years conducting studies and then transmit science back to Earth.
