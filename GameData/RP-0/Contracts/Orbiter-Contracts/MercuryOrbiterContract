@@ -2,7 +2,7 @@ CONTRACT_TYPE
 {
 	name = OrbiterMercury // Inspired by Messenger(Current day tech)
 	
-	group = OrbiterContracts
+	group = OrbitContracts
 	
 	title = Mercury Orbiter
 	description = Design and successfully launch a probe to reach a orbit of Mercury, stay in orbit at least 1 years conducting studies and then transmit science back to Earth.
