@@ -2,7 +2,7 @@ CONTRACT_TYPE
 {
 	name = OrbiterJupiter
 	
-	group = OrbiterContracts
+	group = OrbitContracts
 	
 	title = Jupiter Orbiter
 	description = Design and successfully launch a probe to reach a orbit of Jupiter, stay in orbit at least 2 years conducting studies and then transmit science back to Earth.
