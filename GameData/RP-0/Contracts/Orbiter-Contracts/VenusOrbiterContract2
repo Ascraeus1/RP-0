@@ -2,7 +2,7 @@ CONTRACT_TYPE
 {
 	name = OrbiterVenus2 // Inspired by Venus Express (Current day tech)
 	
-	group = OrbiterContracts
+	group = OrbitContracts
 	
 	title = Venus Orbiter
 	description = Design and successfully launch a probe to reach a orbit of Venus, stay in orbit at least 2 years conducting studies and then transmit science back to Earth.
