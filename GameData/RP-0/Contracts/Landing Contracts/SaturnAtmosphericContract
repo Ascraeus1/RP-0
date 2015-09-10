@@ -1,0 +1,67 @@
+CONTRACT_TYPE
+{
+	name = atmosphericSaturn
+	title = Saturn Atmospheric Probe 
+	description = Now that we have commited ourselves to send a probe to the Saturnian System, some of our scientist propose that we should increase the science return of the mission by including in it a atmospheric probe. We should get a probe to a minimum altitude of 830km and send a probe report from there. 
+	synopsis = Get an uncrewed craft fly into Saturn atmosphere
+	completedMessage = .
+	minExpiry = 1
+	maxExpiry = 30
+	cancellable = true
+	declinable = true
+	autoAccept = false
+	targetBody = Saturn
+	maxCompletions = 1
+	maxSimultaneous = 1
+	deadline = 14600 // 10 years
+	prestige = Exceptional
+	
+	rewardReputation = 100.0
+	rewardFunds = 80000.0
+	failureFunds = 105000.0
+	advanceFunds = 80000.0
+	weight = 50.0 // Should be quite high, so its offered as soon as you accept OrbiterSaturn or flybySaturn
+	group = LandingContracts
+	PARAMETER
+	{
+		name = ReachState
+		type = ReachState
+		targetBody = Saturn
+		maxAltitude = 830000 //830 km, where Saturn atmosphere starts in rss
+	}
+	PARAMETER
+	{
+		name = HasCrew
+		type = HasCrew
+		minCrew = 0
+		maxCrew = 0
+	}
+	REQUIREMENT
+	{
+		name = Any
+		type = Any
+		
+		REQUIREMENT
+		{
+			name = AcceptContract
+			type = AcceptContract
+			contractType = OrbiterSaturn
+		}
+		
+		REQUIREMENT
+		{
+			name = AcceptContract
+			type = AcceptContract
+			contracType = flybySaturn
+		}
+	}
+	PARAMETER
+	{
+		name = CollectScience
+		type = CollectScience
+		targetBody = Saturn
+		experiment = probeReport
+		maxAltitude = 830000 
+		recoveryMethod = RecoverOrTransmit
+	}
+}
