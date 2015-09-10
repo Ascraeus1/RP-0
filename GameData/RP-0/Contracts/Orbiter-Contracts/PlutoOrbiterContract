@@ -9,7 +9,7 @@ CONTRACT_TYPE
 	
 	synopsis = Send a probe to orbit Pluto for 2 years and transmit science.
 	
-	completedMessage = Congratulations on the flyby! The data are coming in now.
+	completedMessage = Pluto, the final frontier of the classical solar system is now a well known world thanks to our Pluto Orbiter. No doubt this mission have set up a new high standard for our space program.
 	
 	minExpiry = 1
 	maxExpiry = 30
@@ -19,7 +19,7 @@ CONTRACT_TYPE
 	targetBody = Pluto
 	maxCompletions = 1
 	maxSimultaneous = 1
-	deadline = 7300 // 5 years
+	deadline = 29200 // 20 years
 	prestige = Exceptional
 	
 	// rewards
@@ -76,7 +76,7 @@ CONTRACT_TYPE
 				type = Duration
 				duration = 2y // Mirroring Galileo prime mission
 				preWaitText = Reach specified orbit.
-				waitingText = Conducting studies on the Jovian system
+				waitingText = Conducting studies on Pluto and his moons
 				completionText = Primary mission completed.
 			}
 		}
