@@ -1,7 +1,7 @@
 CONTRACT_TYPE
 {
 	name = atmosphericJupiter
-	title = Atmospheric Probe Jupiter
+	title = Jupiter Atmospheric Probe 
 	description = Now that we have commited ourselves to send a probe to the Jovian System, some of our scientist propose that we should increase the science return of the mission by including in it a atmospheric probe. We should get a probe to a minimum altitude of 800km and send a probe report from there. 
 	synopsis = Get an uncrewed craft fly into Jupiter's atmosphere
 	completedMessage = .
@@ -10,7 +10,7 @@ CONTRACT_TYPE
 	cancellable = true
 	declinable = true
 	autoAccept = false
-	targetBody = Titan
+	targetBody = Jupiter
 	maxCompletions = 1
 	maxSimultaneous = 1
 	deadline = 14600 // 5 years
