@@ -1,0 +1,67 @@
+CONTRACT_TYPE
+{
+	name = atmosphericJupiter
+	title = Atmospheric Probe Jupiter
+	description = Now that we have commited ourselves to send a probe to the Jovian System, some of our scientist propose that we should increase the science return of the mission by including in it a atmospheric probe. We should get a probe to a minimum altitude of 800km and send a probe report from there. 
+	synopsis = Get an uncrewed craft fly into Jupiter's atmosphere
+	completedMessage = .
+	minExpiry = 1
+	maxExpiry = 30
+	cancellable = true
+	declinable = true
+	autoAccept = false
+	targetBody = Titan
+	maxCompletions = 1
+	maxSimultaneous = 1
+	deadline = 14600 // 5 years
+	prestige = Exceptional
+	
+	rewardReputation = 100.0
+	rewardFunds = 80000.0
+	failureFunds = 105000.0
+	advanceFunds = 80000.0
+	weight = 50.0 // Should be quite high, so its offered as soon as you accept OrbiterJupiter or flybyJupiter
+	group = LandingContracts
+	PARAMETER
+	{
+		name = ReachState
+		type = ReachState
+		targetBody = Jupiter
+		maxAltitude = 800000 //800 km, where Jupiter atmosphere starts in rss
+	}
+	PARAMETER
+	{
+		name = HasCrew
+		type = HasCrew
+		minCrew = 0
+		maxCrew = 0
+	}
+	REQUIREMENT
+	{
+		name = Any
+		type = Any
+		
+		REQUIREMENT
+		{
+			name = AcceptContract
+			type = AcceptContract
+			contractType = OrbiterJupiter
+		}
+		
+		REQUIREMENT
+		{
+			name = AcceptContract
+			type = AcceptContract
+			contracType = flybyJupiter
+		}
+	}
+	PARAMETER
+	{
+		name = CollectScience
+		type = CollectScience
+		targetBody = Jupiter
+		experiment = probeReport
+		maxAltitude = 800000 
+		recoveryMethod = RecoverOrTransmit
+	}
+}
