@@ -1,0 +1,145 @@
+CONTRACT_TYPE
+{
+	name = GrandTourI
+	group = Fly-ByContracts
+	
+	title = Grand Tour I
+	
+	description = Our scientist have found that due to the outer planets alignements, in the next few years we will be able to do launch a spacecraft in a trajectory that will visit several of those bodies consecutively. For the first mission they want us to consider two alternatives, Jupiter-Saturn-Pluto or Jupiter-Saturn-Titan.
+	
+	synopsis = Send a craft on a flyby Jupiter, Saturn and Pluto OR Jupiter, Saturn and his moon Titan, AND send data back to earth from each one of those bodies.
+	
+	completedMessage = The observations taken during this mission have changed our way of understanding the outer solar system. The spacecraft is now leaving behind the solar system
+	
+	agent = Federation Aeronautique Internationale
+	
+	minExpiry = 1
+	maxExpiry = 7
+	maxCompletions = 1
+	maxSimultaneous = 1
+	deadline = 21900 // 15 years
+	cancellable = true
+	declinable = true
+	autoAccept = false
+	prestige = Significant
+	
+	targetBody = Jupiter
+	
+	// reward block
+	advanceFunds = 20000.0
+	rewardReputation = 20.0
+	rewardFunds = 20000.0
+	failureReputation = 20.0
+	failureFunds = 25000.0
+	
+	weight = 500
+	
+	REQUIREMENT
+	{
+		name = Year1975
+		type = AcceptContract
+		contractType = recordUncrewedAlt
+		cooldown = 25y //To have the contract showing up around 1975
+	}
+	
+	PARAMETER
+	{
+
+		
+		PARAMETER
+		{
+			name = NewVessel
+			type = NewVessel
+		}
+		
+		PARAMETER
+		{
+			name = OrbitJupiter
+			type = Orbit
+			targetBody = Jupiter
+			minInclination = 0
+			situation = ESCAPING
+			disableOnStateChange = true
+		}
+		
+		PARAMETER
+		{
+			name = CollectScienceJupiter
+			type = CollectScience
+			targetBody = Jupiter
+			recoveryMethod = RecoverOrTransmit
+		}
+				
+		PARAMETER
+		{
+			name = OrbitSaturn
+			type = Orbit
+			targetBody = Saturn
+			minInclination = 0
+			situation = ESCAPING
+			disableOnStateChange = true
+		}
+		PARAMETER
+		{
+			name = CollectScienceSaturn
+			type = CollectScience
+			targetBody = Saturn
+			recoveryMethod = RecoverOrTransmit
+		}		
+		PARAMETER
+		{
+			name = Any
+			type = Any
+			
+			PARAMETER
+			{
+				name = All
+				type = All
+				PARAMETER
+				{
+					name = OrbitTitan
+					type = Orbit
+					targetBody = Titan
+					minInclination = 0
+					situation = ESCAPING
+					disableOnStateChange = true
+				}
+				PARAMETER
+				{
+					name = CollectScienceTitan
+					type = CollectScience
+					targetBody = Titan
+					recoveryMethod = RecoverOrTransmit
+				}		
+			}
+			PARAMETER
+			{
+				name = All
+				type = All
+				PARAMETER
+				{
+					name = OrbitPluto
+					type = Orbit
+					targetBody = Pluto
+					minInclination = 0
+					situation = ESCAPING
+					disableOnStateChange = true
+				}
+				PARAMETER
+				{
+					name = CollectSciencePluto
+					type = CollectScience
+					targetBody = Pluto
+					recoveryMethod = RecoverOrTransmit
+				}		
+			}
+		}
+		PARAMETER
+		{
+			name = HasNoCrew
+			type = HasCrew
+			minCrew = 0
+			maxCrew = 0
+		}
+	}
+}
